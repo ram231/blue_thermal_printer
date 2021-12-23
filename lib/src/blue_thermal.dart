@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 
-import 'package:blue_thermal_printer/blue_thermal_printer.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 class BlueThermalPrinter {
   static const int STATE_OFF = 10;
@@ -30,10 +28,6 @@ class BlueThermalPrinter {
 
   final StreamController<MethodCall> _methodStreamController =
       new StreamController.broadcast();
-
-  static void registerWith(Registrar registrar) {
-    BlueThermalPrinterWeb.registerWith(registrar);
-  }
 
   BlueThermalPrinter._() {
     _channel.setMethodCallHandler((MethodCall call) async {
